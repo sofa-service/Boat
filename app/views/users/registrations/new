@@ -1,0 +1,1 @@
+%p=link_to "sign up with Facebook", user_omniauth_authorize_path(:facebook)
