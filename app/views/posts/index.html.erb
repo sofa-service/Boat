@@ -1,0 +1,13 @@
+<h1>Posts</h1>
+
+<dl>
+  <% @posts.each do |post| %>
+  <li>title: <%= link_to post.title, post_path(post.id) %></li>
+  <li>author: <%= post.user_id %></li>
+  <li>content: <%= post.content %></li>
+  <% end %>
+</dl>
+
+<p>
+<%= link_to "Create New Post", post_new_path %>
+</p>

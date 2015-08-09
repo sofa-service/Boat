@@ -1,10 +1,16 @@
 Boat::Application.routes.draw do
-  resources :homes
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root :to => 'homes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  get 'users/:id' => 'users#show'
+
+  get  'posts'        => 'posts#index'
+  post 'posts'        => 'posts#create'
+  get  'posts/:id'    => 'posts#show',  as: 'post'
+  get  'post/new'     => 'posts#new'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
