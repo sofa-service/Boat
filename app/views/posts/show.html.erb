@@ -2,7 +2,7 @@
 
 <dl>
   <li>id: <%= @post.id %></li>
-  <li>author: <%= @author.name %></li>
+  <li>author: <%= link_to @author.name, user_path(@author.id) %></li>
   <li>title: <%= @post.title %></li>
   <li>content: <%= @post.content %></li>
 </dl>

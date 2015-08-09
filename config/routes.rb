@@ -5,7 +5,7 @@ Boat::Application.routes.draw do
   root :to => 'homes#index'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  get 'users/:id' => 'users#show'
+  get 'users/:id' => 'users#show', as: 'user'
 
   get  'posts'        => 'posts#index'
   post 'posts'        => 'posts#create'
