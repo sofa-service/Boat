@@ -7,6 +7,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.user_id)
+
+    @comments = @post.comments
+    @comments.each {|comment| comment.user = User.find(comment.user_id)}
+
+    @comment = Comment.new
   end
 
   def new
@@ -14,11 +19,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    params = post_params
-    logger.debug(params)
-    params["user_id"] = 1  # TODO
-    logger.debug(params)
-    @post = Post.new(params)
+    create_params = post_params
+    create_params["user_id"] = current_user.id  # TODO
+
+    @post = Post.new(create_params)
     @post.save
     redirect_to post_path(@post["id"])
   end

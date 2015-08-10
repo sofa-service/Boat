@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-Signed in as <%= current_user.name %>. Not you?
+Signed in as <%= current_user.name %>.
 <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
 <% else %>
 <br/>

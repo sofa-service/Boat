@@ -6,3 +6,24 @@
   <li>title: <%= @post.title %></li>
   <li>content: <%= @post.content %></li>
 </dl>
+
+<h3>comments</h3>
+<dl>
+  <% @comments.each do |comment| %>
+  <li>commenter: <%= link_to comment.user.name, user_path(comment.user.id) %></li>
+  <li>content: <%= comment.content %></li>
+  <% end %>
+</dl>
+
+<h4>Add New Comment</h4>
+<%= form_for @comment do |f| %>
+
+<p>
+  <%= f.label :content %><br>
+  <%= f.text_field :content %>
+</p>
+
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

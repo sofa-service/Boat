@@ -12,6 +12,8 @@ Boat::Application.routes.draw do
   get  'posts/:id'    => 'posts#show',  as: 'post'
   get  'post/new'     => 'posts#new'
 
+  post 'posts/:id/comments' => 'comments#create', as: 'comments'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
