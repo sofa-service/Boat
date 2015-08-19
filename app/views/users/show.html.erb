@@ -5,3 +5,14 @@
   <li>name: <%= @user.name %></li>
   <li>email: <%= @user.email %></li>
 </dl>
+
+<h3><%= @user.name %>'s Posts</h3>
+<dl>
+  <% @posts.each do |post| %>
+  <li>title: <%= link_to post.title, post_path(post.id) %></li>
+  <li>content: <%= post.content %></li>
+  <% end %>
+</dl>
+
+
+<%= link_to "Go to Posts List", posts_path() %></li>

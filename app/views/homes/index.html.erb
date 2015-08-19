@@ -1,11 +1,18 @@
 <% if user_signed_in? %>
-Signed in as <%= current_user.name %>.
-<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
-<% else %>
+<h1>Logged In TOP</h1>
+Signed in as <%= link_to current_user.name, user_path(current_user.id) %>.
 <br/>
+<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+
+<% else %>
+<h1>Not Logged In TOP</h1>
+<!--
 <%= link_to "Sign up", new_user_registration_path %> or<br/>
 <%= link_to "Sign in", new_user_session_path %>
 <br/><br/><br/>
+-->
+Hello Mr. Guest.
+<br/>
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %> 
 <br/>
 <% end %>
